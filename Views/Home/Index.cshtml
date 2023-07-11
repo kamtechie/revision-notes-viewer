@@ -1,7 +1,35 @@
-﻿@{
+﻿@model IEnumerable<RevisionNotes.Models.Topic>;
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    
+<div>
+    <table>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Board
+            </th>
+            <th>
+                Subject
+            </th>
+            <th>
+                Level
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.name, "View", "Note", new { id = item.id })
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.board)</td>
+                <td>@Html.DisplayFor(modelItem => item.subject)</td>
+                <td>@Html.DisplayFor(modelItem => item.level)</td>
+            </tr>
+        }
+     </table>
 </div>
