@@ -19,5 +19,9 @@ namespace RevisionNotes.Services
             _notesCollection = database.GetCollection<Note>("notes");
         }
 
+        public async Task<List<Topic>> GetAllTopicsAsync()
+        {
+            return await _topicsCollection.Find(_ => true).ToListAsync();
+        }
     }
 }

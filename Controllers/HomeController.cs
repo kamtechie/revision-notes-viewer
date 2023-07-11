@@ -1,26 +1,25 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using RevisionNotes.Models;
+using RevisionNotes.Services;
 
 namespace RevisionNotes.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly MongoService _mongoService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(MongoService mongoService, ILogger<HomeController> logger)
     {
         _logger = logger;
+        _mongoService = mongoService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
+        List<Topic> topics = await _mongoService.GetAllTopicsAsync();
+        return View(topics);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
