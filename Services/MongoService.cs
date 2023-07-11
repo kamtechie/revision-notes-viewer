@@ -23,5 +23,10 @@ namespace RevisionNotes.Services
         {
             return await _topicsCollection.Find(_ => true).ToListAsync();
         }
+
+        public async Task<Note> GetNoteByIdAsync(string id)
+        {
+            return await _notesCollection.Find(note => note.topic == id).FirstOrDefaultAsync();
+        }
     }
 }
