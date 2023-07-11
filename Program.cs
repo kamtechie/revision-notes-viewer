@@ -1,10 +1,13 @@
 using RevisionNotes.Models;
+using RevisionNotes.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.Configure<DatabaseSettings>(
     builder.Configuration.GetSection("Database"));
+
+builder.Services.AddSingleton<MongoService>();
 
 builder.Services.AddControllersWithViews();
 
