@@ -19,12 +19,18 @@ public class NoteController : Controller
             return NotFound();
         }
 
-        var note = await _mongoService.GetNoteByIdAsync(id);
+        var topic = await _mongoService.GetTopicByIdAsync(id);
+        var note = await _mongoService.GetNoteByTopicIdAsync(id);
 
-        if (note == null)
+        if (note == null || topic == null)
         {
             return NotFound();
         }
+
+        ViewData["TopicName"] = topic.name;
+        ViewData["TopicBoard"] = topic.board;
+        ViewData["TopicLevel"] = topic.level;
+        ViewData["TopicSubject"] = topic.subject;
         return View(note);
     }
 }
