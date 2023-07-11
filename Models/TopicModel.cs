@@ -7,13 +7,13 @@ namespace RevisionNotes.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
-        public string Name { get; set; }
+        public string id { get; set; }
+        public string name { get; set; }
 
-        public string Subject { get; set; }
+        public string subject { get; set; }
 
-        public string Board { get; set; }
+        public string board { get; set; }
 
-        public string Level { get; set; }
+        public string level { get; set; }
     }
 }
