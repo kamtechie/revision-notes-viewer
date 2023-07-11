@@ -19,7 +19,6 @@ body {
 .navbar-title {
   color: white;
   font-size: 1.5em;
-  margin-left: 0.5em;
 }
 
 table {
@@ -36,4 +35,24 @@ td {
 
 tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+/* notes view */
+.header {
+  margin-top: 1em;
+}
+.header {
+  font-size: 1.75em;
+}
+
+.content, .header {
+  display: flex;
+  justify-content: center;
+}
+
+.content > p {
+  padding: 1em;
+  border: 1px solid grey;
+  width: 90%;
+  max-width: 900px;
 }

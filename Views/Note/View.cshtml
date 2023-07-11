@@ -3,6 +3,11 @@
     ViewData["Title"] = ViewData["TopicName"];
 }
 
-<div>
+<section class="notes-wrapper">
+<h1 class="header">
+    @ViewData["TopicBoard"] @ViewData["TopicLevel"] @ViewData["TopicSubject"]  @ViewData["TopicName"]
+</h1>
+<div class="content">
     <p>@Model.content</p>
 </div>
+</section>
