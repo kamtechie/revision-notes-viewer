@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace RevisionNotes.Models
 {
-    public class NoteModel
+    public class Note
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
